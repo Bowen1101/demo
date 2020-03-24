@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 public class Person {
 	//properties
+	private long id;
 	private String fullName;
 	private String firstName;
 	private String lastName;
@@ -10,6 +11,9 @@ public class Person {
 	private String address;
 	private int zipCode;
 	//getters
+	public long getId() {
+		return id;
+	}
 	public String getFullName() {
 		return fullName;
 	} 
