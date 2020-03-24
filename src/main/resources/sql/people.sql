@@ -4,7 +4,7 @@
 
 CREATE TABLE public.people
 (
-    id integer NOT NULL DEFAULT nextval('people_id_seq'::regclass),
+    id bigint NOT NULL DEFAULT nextval('people_id_seq'::regclass),
     full_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
     first_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
     last_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
