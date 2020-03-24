@@ -1,21 +1,17 @@
--- Table: public.people
+CREATE TABLE people (
+id bigserial not null primary key,
+full_name varchar(40) not null,
+first_name varchar(20) not null,
+last_name varchar(20) not null,
+age integer not null,
+email varchar(50),
+address varchar(150),
+zipcode integer
+);
 
--- DROP TABLE public.people;
+SELECT * FROM people;
 
-CREATE TABLE public.people
-(
-    id bigint NOT NULL DEFAULT nextval('people_id_seq'::regclass),
-    full_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
-    first_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
-    last_name character varying(20)[] COLLATE pg_catalog."default" NOT NULL,
-    age integer NOT NULL,
-    email character varying(40)[] COLLATE pg_catalog."default" NOT NULL,
-    address character varying(200)[] COLLATE pg_catalog."default" NOT NULL,
-    zipcode integer NOT NULL,
-    CONSTRAINT people_pkey PRIMARY KEY (id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE public.people
-    OWNER to postgres;
+INSERT INTO people(id, full_name, first_name, last_name, age, email, address, zipcode) values
+(1, 'Bowen Shen', 'Bowen', 'Shen', 24, 'bshen36@gwu.edu', '5597 Seminary Rd', 22041 ),
+(2, 'Ronny Chow', 'Ronny', 'Chow', 25, 'ronny@gwu.edu', '1900 S Eads St', 22202),
+(3, 'April Chen', 'April', 'Chen', 21, 'april@gwu.edu', '1900 S Eads St', 22202);
