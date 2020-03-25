@@ -21,4 +21,11 @@ public class PersonController {
 		return "people";
 	}
 	
+//	@RequestMapping("/addpeople")
+//	public String addPeople(Model model) {
+//		
+//		return "addpeople";
+//	}
+//	
+	
 }
