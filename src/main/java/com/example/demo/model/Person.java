@@ -61,4 +61,8 @@ public class Person {
 		this.zipCode = zipCode;
 	}
 	
+	@Override
+	public String toString() {
+		return fullName + ", " + age + ", " +  email + ", " + address + ", " +  zipCode + ";";
+	}
 }
