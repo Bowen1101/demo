@@ -1,0 +1,59 @@
+diff --git a/src/main/java/com/example/demo/controller/PersonController.java b/src/main/java/com/example/demo/controller/PersonController.java
+index 5068d07..6601ac4 100644
+--- a/src/main/java/com/example/demo/controller/PersonController.java
++++ b/src/main/java/com/example/demo/controller/PersonController.java
+@@ -27,12 +27,12 @@ public class PersonController {
+ 	
+ 	@GetMapping("/addpeople")
+ 	public String addPeople(Model model) {
+-		model.addAttribute("addpeople", new Person());
++		model.addAttribute("person", new Person());
+ 		return "addpeople";
+ 	}
+ 	
+ 	@PostMapping("/addpeople")
+-	public String showResult(@ModelAttribute("addpeople") Person person) {
++	public String showResult(Model model,@ModelAttribute("person") Person personx) {
+ 		return "result";
+ 	}
+ }
+diff --git a/src/main/resources/templates/addpeople.html b/src/main/resources/templates/addpeople.html
+index 8f70af4..495a13a 100644
+--- a/src/main/resources/templates/addpeople.html
++++ b/src/main/resources/templates/addpeople.html
+@@ -9,14 +9,14 @@
+ 	<p th:text="${person}"/>
+ 	
+ 	<form action="#" th:action="@{/addpeople}" th:object="${person}" method="POST">
+-		Id: <Input type+"text" name="id" th:field="{id}"/><br/>
+-		Full Name: <Input type+"text" name="fullName" th:field="{fullName}"/><br/>
+-		First Name: <Input type+"text" name="firstName" th:field="{firstName}"/><br/>
+-		Last Name: <Input type+"text" name="lastName" th:field="{lastName}"/><br/>
+-		Age: <Input type+"text" name="age" th:field="{age}"/><br/>
+-		Email: <Input type+"text" name="email" th:field="{email}"/><br/>
+-		Address: <Input type+"text" name="address" th:field="{address}"/><br/>
+-		Zipcode: <Input type+"text" name="zipCode" th:field="{zipCode}"/><br/>
++- 		Id: <Input type="text" name="id" th:field="*{id}"/><br/> 
++		Full Name: <Input type="text" name="fullName" th:field="*{fullName}"/><br/>
++		First Name: <Input type="text" name="firstName" th:field="*{firstName}"/><br/>
++		Last Name: <Input type="text" name="lastName" th:field="*{lastName}"/><br/>
++		Age: <Input type="text" name="age" th:field="*{age}"/><br/>
++		Email: <Input type="text" name="email" th:field="*{email}"/><br/>
++		Address: <Input type="text" name="address" th:field="*{address}"/><br/>
++		Zipcode: <Input type="text" name="zipCode" th:field="*{zipCode}"/><br/>
+ 		<button name="submit" type="submit" value="0">Submit</button>
+ 	</form>
+ </div>
+diff --git a/src/main/resources/templates/result.html b/src/main/resources/templates/result.html
+index 1dc0a65..18515c2 100644
+--- a/src/main/resources/templates/result.html
++++ b/src/main/resources/templates/result.html
+@@ -8,7 +8,7 @@
+ 
+ <h1>Result</h1>
+ 
+-<p th:text="'Full Name: ' + ${person.fullName}" + "${person.age}" + "${person.email}" + "${person.address}"></p>
++<p th:text="'Full Name: ' + ${person.fullName + person.age + person.email+ person.address}"></p>
+ 
+ <a href="/addpeople">Submit another person</a>
+ 

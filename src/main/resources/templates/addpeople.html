@@ -9,14 +9,14 @@
 	<p th:text="${person}"/>
 	
 	<form action="#" th:action="@{/addpeople}" th:object="${person}" method="POST">
-		Id: <Input type+"text" name="id" th:field="{id}"/><br/>
-		Full Name: <Input type+"text" name="fullName" th:field="{fullName}"/><br/>
-		First Name: <Input type+"text" name="firstName" th:field="{firstName}"/><br/>
-		Last Name: <Input type+"text" name="lastName" th:field="{lastName}"/><br/>
-		Age: <Input type+"text" name="age" th:field="{age}"/><br/>
-		Email: <Input type+"text" name="email" th:field="{email}"/><br/>
-		Address: <Input type+"text" name="address" th:field="{address}"/><br/>
-		Zipcode: <Input type+"text" name="zipCode" th:field="{zipCode}"/><br/>
+- 		Id: <Input type="text" name="id" th:field="*{id}"/><br/> 
+		Full Name: <Input type="text" name="fullName" th:field="*{fullName}"/><br/>
+		First Name: <Input type="text" name="firstName" th:field="*{firstName}"/><br/>
+		Last Name: <Input type="text" name="lastName" th:field="*{lastName}"/><br/>
+		Age: <Input type="text" name="age" th:field="*{age}"/><br/>
+		Email: <Input type="text" name="email" th:field="*{email}"/><br/>
+		Address: <Input type="text" name="address" th:field="*{address}"/><br/>
+		Zipcode: <Input type="text" name="zipCode" th:field="*{zipCode}"/><br/>
 		<button name="submit" type="submit" value="0">Submit</button>
 	</form>
 </div>

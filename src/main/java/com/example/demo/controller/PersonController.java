@@ -27,12 +27,12 @@ public class PersonController {
 	
 	@GetMapping("/addpeople")
 	public String addPeople(Model model) {
-		model.addAttribute("addpeople", new Person());
+		model.addAttribute("person", new Person());
 		return "addpeople";
 	}
 	
 	@PostMapping("/addpeople")
-	public String showResult(@ModelAttribute("addpeople") Person person) {
+	public String showResult(Model model,@ModelAttribute("person") Person personx) {
 		return "result";
 	}
 }
