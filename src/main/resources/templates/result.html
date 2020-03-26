@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show message</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Result</h1>
+
+<p th:text="'Full Name: ' + ${person.fullName}" + "${person.age}" + "${person.email}" + "${person.address}"></p>
+
+<a href="/addpeople">Submit another person</a>
+
+</body>
+</html>
