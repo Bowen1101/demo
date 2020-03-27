@@ -40,12 +40,12 @@ public class PersonDaoImpl implements PersonDao {
 	}
 
 	public boolean updatePerson(Person person) {
-		return jdbcTemplate.update(SQL_UPDATE_PERSON, person.getFirstName(), person.getLastName(), person.getAge(),
+		return jdbcTemplate.update(SQL_UPDATE_PERSON, person.getFullName(), person.getFirstName(), person.getLastName(), person.getAge(), person.getEmail(), person.getAddress(), person.getZipCode(),
 				person.getId()) > 0;
 	}
 
 	public boolean createPerson(Person person) {
-		return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFirstName(), person.getLastName(),
-				person.getAge()) > 0;
+		return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFullName(), person.getFirstName(), person.getLastName(), 
+				person.getAge(), person.getEmail(), person.getAddress(), person.getZipCode()) > 0;
 	}
 }
