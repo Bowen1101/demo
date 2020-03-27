@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.model.Car;
 import com.example.demo.model.CarMapper;
-import com.example.demo.model.PersonMapper;
 
 @Component
 public class CarDaoImpl implements CarDao {
