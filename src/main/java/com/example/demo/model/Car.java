@@ -7,6 +7,7 @@ public class Car {
 	private String make;
 	private String model;
 	private String color;
+	private long owner;
 	
 	public long getId() {
 		return id;
@@ -23,6 +24,9 @@ public class Car {
 	public String getColor() {
 		return color;
 	}
+	public long getOwner() {
+		return owner;
+	}
 	
 	public void setId(long id) {
 		this.id = id;
@@ -38,6 +42,9 @@ public class Car {
 	}
 	public void setColor(String color) {
 		this.color = color;
+	}
+	public void setOwner(long owner) {
+		this.owner = owner;
 	}
 	
 	
