@@ -20,8 +20,9 @@ public class CarDaoImpl implements CarDao {
 	private final String SQL_DELETE_CAR = "delete from cars where id = ?";
 	private final String SQL_UPDATE_CAR = "update cars set vin_number = ?, make = ?, model = ?, color  = ?, owner = ? where id = ?";
 	private final String SQL_GET_ALL = "select * from cars";
-	private final String SQL_INSERT_CAR = "insert into cars(id, vin_number, make, model, color, owner) values(?,?,?,?,?,?)";
-	
+	private final String SQL_INSERT_CAR = "insert into cars(vin_number, make, model, color, owner) values(?,?,?,?,?)";
+	private final String SQL_FIND_CARS_BY_OWNER = "select * from cars where owner = ?";
+
 	@Autowired
 	public CarDaoImpl(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -36,7 +37,7 @@ public class CarDaoImpl implements CarDao {
 	}
 	
 	public boolean createCar(Car car) {
-		return jdbcTemplate.update(SQL_INSERT_CAR, car.getId(), car.getVinNumber(), car.getMake(), car.getModel(), car.getColor(), car.getOwner()) > 0;
+		return jdbcTemplate.update(SQL_INSERT_CAR, car.getVinNumber(), car.getMake(), car.getModel(), car.getColor(), car.getOwner()) > 0;
 	}
 	
 	public boolean deleteCar(Car car) {
@@ -45,6 +46,10 @@ public class CarDaoImpl implements CarDao {
 	
 	public boolean updateCar(Car car) {
 		return jdbcTemplate.update(SQL_UPDATE_CAR, car.getVinNumber(), car.getMake(), car.getModel(), car.getColor(), car.getOwner(), car.getId()) > 0;
+	}
+	
+	public List<Car> getCarsByOwner(long owner){
+		return jdbcTemplate.query(SQL_FIND_CARS_BY_OWNER, new CarMapper());
 	}
 	
 }

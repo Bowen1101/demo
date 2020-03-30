@@ -12,8 +12,9 @@ public class CarMapper implements RowMapper<Car>{
 		car.setId(resultSet.getLong("id"));
 		car.setVinNumber(resultSet.getString("vin_number"));
 		car.setMake(resultSet.getString("make"));
-		car.setMake(resultSet.getString("model"));
-		car.setMake(resultSet.getString("color"));
+		car.setModel(resultSet.getString("model"));
+		car.setColor(resultSet.getString("color"));
+		car.setOwner(resultSet.getLong("owner"));
 		return car;
 	}
 	

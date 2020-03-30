@@ -15,4 +15,6 @@ public interface CarDao {
 
 	boolean updateCar(Car car);
 	
+	List<Car> getCarsByOwner(long owner);
+	
 }

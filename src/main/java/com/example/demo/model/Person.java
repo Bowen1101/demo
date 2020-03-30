@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 public class Person {
 	//properties
 	private long id;
@@ -10,6 +12,7 @@ public class Person {
 	private String email;
 	private String address;
 	private int zipCode;
+	private List<Car> cars;
 	//getters
 	public long getId() {
 		return id;
@@ -35,6 +38,9 @@ public class Person {
 	public int getZipCode() {
 		return zipCode;
 	}
+	public List<Car> getCars(){
+		return cars;
+	}
 	//setters
 	public void setId(long id) {
 		this.id = id;
@@ -59,6 +65,9 @@ public class Person {
 	}
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
+	}
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
 	}
 	
 	@Override

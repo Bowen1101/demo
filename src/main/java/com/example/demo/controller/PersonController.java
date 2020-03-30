@@ -32,7 +32,7 @@ public class PersonController {
 	}
 	
 	@PostMapping("/addpeople")
-	public String showResult(Model model,@ModelAttribute("person") Person personx) {
+	public String showResult(Model model,@ModelAttribute("person") Person person) {
 		return "result";
 	}
 }

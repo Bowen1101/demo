@@ -20,7 +20,7 @@ public class PersonDaoImpl implements PersonDao {
 	private final String SQL_DELETE_PERSON = "delete from people where id = ?";
 	private final String SQL_UPDATE_PERSON = "update people set full_name = ?, first_name = ?, last_name = ?, age  = ?, email = ?, address = ?, zipcode = ? where id = ?";
 	private final String SQL_GET_ALL = "select * from people";
-	private final String SQL_INSERT_PERSON = "insert into people(id, full_name, first_name, last_name, age, email, address, zipcode) values(?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_PERSON = "insert into people(full_name, first_name, last_name, age, email, address, zipcode) values(?,?,?,?,?,?,?)";
 	
 	@Autowired
 	public PersonDaoImpl(DataSource dataSource) {
@@ -45,7 +45,7 @@ public class PersonDaoImpl implements PersonDao {
 	}
 
 	public boolean createPerson(Person person) {
-		return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFullName(), person.getFirstName(), person.getLastName(), 
+		return jdbcTemplate.update(SQL_INSERT_PERSON, person.getFullName(), person.getFirstName(), person.getLastName(), 
 				person.getAge(), person.getEmail(), person.getAddress(), person.getZipCode()) > 0;
 	}
 }
