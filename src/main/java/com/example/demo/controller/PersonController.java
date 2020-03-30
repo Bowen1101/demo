@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Person;
+import com.example.demo.service.CarService;
 import com.example.demo.service.PersonService;
 
 @Controller
@@ -16,6 +18,8 @@ public class PersonController {
 	
 	@Autowired
 	private PersonService personService;
+	@Autowired
+	private CarService carService;
 	
 	@RequestMapping("/people")
 	public String listAllPeople(Model model) {
@@ -34,5 +38,12 @@ public class PersonController {
 	@PostMapping("/addpeople")
 	public String showResult(Model model,@ModelAttribute("person") Person person) {
 		return "result";
+	}
+	
+	@RequestMapping("/peopledetail")
+	public String getCarsByOwner(Model model, @RequestParam(value="owner", required=true) Long owner ) {
+//		model.addAttribute("owner", owner);
+		model.addAttribute("peopledetail", carService.getCarsByOwner(owner));
+		return "peopledetail";
 	}
 }

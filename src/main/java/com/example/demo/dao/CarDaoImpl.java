@@ -49,7 +49,7 @@ public class CarDaoImpl implements CarDao {
 	}
 	
 	public List<Car> getCarsByOwner(long owner){
-		return jdbcTemplate.query(SQL_FIND_CARS_BY_OWNER, new CarMapper());
+		return jdbcTemplate.query(SQL_FIND_CARS_BY_OWNER, new Object[] {owner},new CarMapper());
 	}
 	
 }

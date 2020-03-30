@@ -34,7 +34,7 @@ public class CarService {
 		return carDao.updateCar(car);
 	}
 	
-	List<Car> getCarsByOwner(long owner){
+	public List<Car> getCarsByOwner(long owner){
 		return carDao.getCarsByOwner(owner);
 	}
 	
