@@ -7,10 +7,20 @@
 <body>
 
 <h1>Result</h1>
+	
+	<div>
+		<h2>Person Information: </h2>
+		<p th:utext=" '<b>'+'Full Name: '+'</b>' + ${person.fullName} + '<br/>'+
+					  '<b>'+'First Name: '+'</b>' + ${person.firstName} + '</br>'+
+					  '<b>'+'Last Name: '+'</b>' + ${person.lastName} + '</br>'+ 	
+					  '<b>'+'Age: '+'</b>' + ${person.age} + '<br/>' +
+					  '<b>'+'Email: '+'</b>' + ${person.email} + '<br/>' +
+				      '<b>'+'Address: '+'</b>' + ${person.address}"> + '<br/>' +
+				      '<b>'+'Zipcode: '+'</b>' + ${person.zipCode}"> + '<br/>' 
+		</p>
+	</div>
 
-<p th:text="'Full Name: ' + ${person.fullName + person.age + person.email+ person.address}"></p>
-
-<a href="/addpeople">Submit another person</a>
+<a href="/addperson">Submit another person</a><br/>
 <a href="/people">Return To People List</a>
 
 </body>

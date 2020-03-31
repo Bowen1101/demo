@@ -14,31 +14,35 @@
 </head>
 <body>
 	<div>
-	<div th:if="${not #lists.isEmpty(cars)}">
-		<h2>Cars Owned</h2>
-		<table id="persondetail" class="display" cellspacing="0" width="80%">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Vin Number</th>
-				<th>Make</th>
-				<th>Model</th>
-				<th>Color</th>
-				<th>Owner Id</th>
-			</tr>
-		</thead>
-		<tbody>	
-			<tr th:each="car : ${cars}">
-				<td th:text="${car.id}"></td>
-				<td th:text="${car.vinNumber}"></td>
-				<td th:text="${car.make}"></td>
-				<td th:text="${car.model}"></td>
-				<td th:text="${car.color}"></td>
-				<td th:text="${car.owner}"></td>
-			</tr>
-		</tbody>
-		</table>
-	</div>	
-</div>
+		<div th:if="${not #lists.isEmpty(person.cars)}">
+			<div>
+				<h1>Cars Owned</h1>
+				<h2>Owner Information: </h2>
+				<p th:utext=" '<b>'+'Full Name: '+'</b>' + ${person.fullName} + '<br/>' +'<b>'+'Age: '+'</b>' + ${person.age} + '<br/>' +'<b>'+'Email: '+'</b>' + ${person.email} + '<br/>' +'<b>'+'Address: '+'</b>' + ${person.address}"></p>
+			</div>
+			<table id="persondetail" class="display" cellspacing="0" width="80%">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Vin Number</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Color</th>
+					<th>Owner Id</th>
+				</tr>
+			</thead>
+			<tbody>	
+				<tr th:each="car : ${person.cars}">
+					<td th:text="${car.id}"></td>
+					<td th:text="${car.vinNumber}"></td>
+					<td th:text="${car.make}"></td>
+					<td th:text="${car.model}"></td>
+					<td th:text="${car.color}"></td>
+					<td th:text="${car.owner}"></td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+	</div>
 </body>
 </html>

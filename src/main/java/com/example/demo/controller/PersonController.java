@@ -27,13 +27,13 @@ public class PersonController {
 		return "people";
 	}
 	
-	@GetMapping("/addpeople")
+	@GetMapping("/addperson")
 	public String addPeople(Model model) {
 		model.addAttribute("person", new Person());
-		return "addpeople";
+		return "addperson";
 	}
 	
-	@PostMapping("/addpeople")
+	@PostMapping("/addperson")
 	public String showResult(Model model,@ModelAttribute("person") Person person) {
 		return "result";
 	}
@@ -41,7 +41,8 @@ public class PersonController {
 	@RequestMapping("/persondetail")
 	public String showPersonDetail(Model model, @RequestParam(value="owner", required=true) Long owner ) {
 //		List<Car> cars = personService.getPersonById(owner).getCars();
-		model.addAttribute("cars", personService.getPersonById(owner).getCars());
+		model.addAttribute("person", personService.getPersonById(owner));
+//		model.addAttribute("cars", personService.getPersonById(owner).getCars());
 		return "persondetail";
 	}
 }
