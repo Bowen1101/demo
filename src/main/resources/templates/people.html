@@ -31,7 +31,9 @@
 		<tbody>	
 			<tr th:each="person : ${people}">
 				<td th:text="${person.id}"></td>
-				<td th:text="${person.fullName}"></td>
+				<td>
+					<a th:href="@{/persondetail(owner=${person.id})}" th:text="${person.fullName}" ></a>
+				</td>
 				<td th:text="${person.firstName}"></td>
 				<td th:text="${person.lastName}"></td>
 				<td th:text="${person.age}"></td>
