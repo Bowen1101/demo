@@ -39,7 +39,7 @@ public class PersonController {
 	}
 	
 	@RequestMapping("/persondetail")
-	public String getCarsByOwner(Model model, @RequestParam(value="owner", required=true) Long owner ) {
+	public String showPersonDetail(Model model, @RequestParam(value="owner", required=true) Long owner ) {
 //		List<Car> cars = personService.getPersonById(owner).getCars();
 		model.addAttribute("cars", personService.getPersonById(owner).getCars());
 		return "persondetail";
