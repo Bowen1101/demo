@@ -35,6 +35,7 @@ public class PersonController {
 	
 	@PostMapping("/addperson")
 	public String showResult(Model model,@ModelAttribute("person") Person person) {
+		boolean isSuccess = personService.createPerson(person);
 		return "result";
 	}
 	
