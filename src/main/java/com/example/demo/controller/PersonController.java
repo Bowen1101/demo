@@ -35,15 +35,21 @@ public class PersonController {
 	
 	@PostMapping("/addperson")
 	public String showResult(Model model,@ModelAttribute("person") Person person) {
-		boolean isSuccess = personService.createPerson(person);
+		personService.createPerson(person);
 		return "result";
 	}
 	
 	@RequestMapping("/persondetail")
-	public String showPersonDetail(Model model, @RequestParam(value="owner", required=true) Long owner ) {
+	public String showPersonDetail(Model model, @RequestParam(value="owner", required=true) long owner ) {
 //		List<Car> cars = personService.getPersonById(owner).getCars();
 		model.addAttribute("person", personService.getPersonById(owner));
 //		model.addAttribute("cars", personService.getPersonById(owner).getCars());
 		return "persondetail";
+	}
+	
+	@RequestMapping("/delete")
+	public String deletePersonById(Model model, @RequestParam(value="id", required=true) long id) {
+		personService.deletePersonById(id);
+		return "redirect:/people";
 	}
 }

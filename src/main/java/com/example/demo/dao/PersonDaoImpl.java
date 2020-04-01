@@ -38,6 +38,10 @@ public class PersonDaoImpl implements PersonDao {
 	public boolean deletePerson(Person person) {
 		return jdbcTemplate.update(SQL_DELETE_PERSON, person.getId()) > 0;
 	}
+	
+	public boolean deletePersonById(long id) {
+		return jdbcTemplate.update(SQL_DELETE_PERSON,id)>0;
+	}
 
 	public boolean updatePerson(Person person) {
 		return jdbcTemplate.update(SQL_UPDATE_PERSON, person.getFullName(), person.getFirstName(), person.getLastName(), person.getAge(), person.getEmail(), person.getAddress(), person.getZipCode(),
@@ -48,4 +52,5 @@ public class PersonDaoImpl implements PersonDao {
 		return jdbcTemplate.update(SQL_INSERT_PERSON, person.getFullName(), person.getFirstName(), person.getLastName(), 
 				person.getAge(), person.getEmail(), person.getAddress(), person.getZipCode()) > 0;
 	}
+	
 }

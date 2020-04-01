@@ -12,6 +12,8 @@ public interface PersonDao {
 	boolean createPerson(Person person);
 	
 	boolean deletePerson(Person person);
+	
+	boolean deletePersonById(long id);
 
 	boolean updatePerson(Person person);
 

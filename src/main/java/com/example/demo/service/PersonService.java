@@ -32,6 +32,10 @@ public class PersonService {
 		return personDao.deletePerson(person);
 	}
 	
+	public boolean deletePersonById(long id) {
+		return personDao.deletePersonById(id);
+	}
+	
 	public boolean updatePerson(Person person) {
 		return personDao.updatePerson(person);
 	}
@@ -39,4 +43,8 @@ public class PersonService {
 	public boolean createPerson(Person person) {
 		return personDao.createPerson(person);
 	}
+	
+//	public boolean createOrUpdatePerson(long id) {
+//		
+//	}
 }
