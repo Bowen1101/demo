@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show message</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Result</h1>
+	
+	<div>
+		<h2>Person Information: </h2>
+		<p th:utext=" '<b>'+'Full Name: '+'</b>' + ${person.fullName} + '<br/>'+
+					  '<b>'+'First Name: '+'</b>' + ${person.firstName} + '</br>'+
+					  '<b>'+'Last Name: '+'</b>' + ${person.lastName} + '</br>'+ 	
+					  '<b>'+'Age: '+'</b>' + ${person.age} + '<br/>' +
+					  '<b>'+'Email: '+'</b>' + ${person.email} + '<br/>' +
+				      '<b>'+'Address: '+'</b>' + ${person.address}"> + '<br/>' +
+				      '<b>'+'Zipcode: '+'</b>' + ${person.zipCode}"> + '<br/>' 
+		</p>
+	</div>
+
+
+<a href="/people">Return To People List</a>
+
+</body>
+</html>

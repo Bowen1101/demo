@@ -32,6 +32,15 @@ public class PersonService {
 		return personDao.deletePerson(person);
 	}
 	
+	public boolean deletePersonAndCars(Person person) {
+		return personDao.deletePersonAndCars(person);
+	}
+	
+	public boolean deletePersonAndCarsById(long id) {
+		Person person = personDao.getPersonById(id);
+		return personDao.deletePersonAndCars(person);
+	}
+	
 	public boolean deletePersonById(long id) {
 		return personDao.deletePersonById(id);
 	}
@@ -44,7 +53,18 @@ public class PersonService {
 		return personDao.createPerson(person);
 	}
 	
-//	public boolean createOrUpdatePerson(long id) {
-//		
-//	}
+	public boolean createOrUpdatePerson(Person person) {
+		boolean isSuccess = false;
+		if(person.getId()==0) {
+			personDao.createPerson(person);
+		}else {
+			personDao.updatePerson(person);
+		}
+		return isSuccess;
+	}
+	
+	public boolean updatePersonById(long id) {
+		Person person = personDao.getPersonById(id);
+		return personDao.updatePerson(person);
+	}
 }

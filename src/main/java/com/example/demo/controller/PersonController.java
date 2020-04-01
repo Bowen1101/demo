@@ -49,7 +49,20 @@ public class PersonController {
 	
 	@RequestMapping("/delete")
 	public String deletePersonById(Model model, @RequestParam(value="id", required=true) long id) {
-		personService.deletePersonById(id);
+		personService.deletePersonAndCarsById(id);
 		return "redirect:/people";
+	}
+	
+	@RequestMapping("/editperson")
+	public String updatePerson(Model model, @RequestParam(value="id", required=true) long id) {
+		Person person = personService.getPersonById(id);
+		model.addAttribute("person", person );
+		return"editperson";
+	}
+	
+	@PostMapping("/editperson")
+	public String showEditResult(Model model, @ModelAttribute("person") Person person) {
+		personService.updatePerson(person);
+		return "editpersonresult";
 	}
 }

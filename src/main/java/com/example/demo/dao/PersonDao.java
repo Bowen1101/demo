@@ -13,6 +13,8 @@ public interface PersonDao {
 	
 	boolean deletePerson(Person person);
 	
+	public boolean deletePersonAndCars(Person person);
+	
 	boolean deletePersonById(long id);
 
 	boolean updatePerson(Person person);

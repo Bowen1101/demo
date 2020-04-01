@@ -29,6 +29,8 @@
 				<th>Email</th>
 				<th>Address</th>
 				<th>Zipcode</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>	
@@ -43,6 +45,12 @@
 				<td th:text="${person.email}"></td>
 				<td th:text="${person.address}"></td>
 				<td th:text="${person.zipCode}"></td>
+				<td>
+					<a th:href="@{/editperson(id=${person.id})}">Edit</a>
+				</td>
+				<td>
+					<a th:href="@{/delete(id=${person.id})}">Delete</a>
+				</td>
 			</tr>
 		</tbody>
 		</table>
