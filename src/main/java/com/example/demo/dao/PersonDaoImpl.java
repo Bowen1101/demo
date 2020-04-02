@@ -44,7 +44,7 @@ public class PersonDaoImpl implements PersonDao {
 	public boolean deletePersonAndCars(Person person) {
 		List<Car> cars = person.getCars();
 		boolean isSuccessful = false;
-		if(cars.isEmpty()) {
+		if(cars==null) {
 			jdbcTemplate.update(SQL_DELETE_PERSON, person.getId());
 			isSuccessful = true;
 		}else {
