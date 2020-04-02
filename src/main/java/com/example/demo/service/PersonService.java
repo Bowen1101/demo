@@ -32,13 +32,16 @@ public class PersonService {
 		return personDao.deletePerson(person);
 	}
 	
-	public boolean deletePersonAndCars(Person person) {
-		return personDao.deletePersonAndCars(person);
-	}
+//	public boolean deletePersonAndCars(Person person) {
+//		return personDao.deletePersonAndCars(person);
+//	}
 	
 	public boolean deletePersonAndCarsById(long id) {
-		Person person = personDao.getPersonById(id);
-		return personDao.deletePersonAndCars(person);
+		List<Car> cars = carDao.getCarsByOwner(id);
+		if(cars != null) {
+			carDao.deleteCarByOwner(id);
+		}
+		return personDao.deletePersonById(id);
 	}
 	
 	public boolean deletePersonById(long id) {

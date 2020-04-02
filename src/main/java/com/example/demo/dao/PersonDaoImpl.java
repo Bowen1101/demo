@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.model.Car;
 import com.example.demo.model.Person;
 import com.example.demo.model.PersonMapper;
 
@@ -19,7 +18,6 @@ public class PersonDaoImpl implements PersonDao {
 	
 	private final String SQL_FIND_PERSON = "select * from people where id = ?";
 	private final String SQL_DELETE_PERSON = "delete from people where id = ?";
-	private final String SQL_DELETE_CAR = "delete from cars where owner = ?";
 	private final String SQL_UPDATE_PERSON = "update people set full_name = ?, first_name = ?, last_name = ?, age  = ?, email = ?, address = ?, zipcode = ? where id = ?";
 	private final String SQL_GET_ALL = "select * from people";
 	private final String SQL_INSERT_PERSON = "insert into people(full_name, first_name, last_name, age, email, address, zipcode) values(?,?,?,?,?,?,?)";
@@ -41,19 +39,19 @@ public class PersonDaoImpl implements PersonDao {
 		return jdbcTemplate.update(SQL_DELETE_PERSON, person.getId()) > 0;
 	}
 	
-	public boolean deletePersonAndCars(Person person) {
-		List<Car> cars = person.getCars();
-		boolean isSuccessful = false;
-		if(cars==null) {
-			jdbcTemplate.update(SQL_DELETE_PERSON, person.getId());
-			isSuccessful = true;
-		}else {
-			jdbcTemplate.update(SQL_DELETE_CAR, person.getId());
-			jdbcTemplate.update(SQL_DELETE_PERSON, person.getId());
-			isSuccessful = true;
-		}
-		return isSuccessful;
-	}
+//	public boolean deletePersonAndCars(Person person) {
+//		List<Car> cars = person.getCars();
+//		boolean isSuccessful = false;
+//		if(cars==null) {
+//			jdbcTemplate.update(SQL_DELETE_PERSON, person.getId());
+//			isSuccessful = true;
+//		}else {
+//			jdbcTemplate.update(SQL_DELETE_CAR, person.getId());
+//			jdbcTemplate.update(SQL_DELETE_PERSON, person.getId());
+//			isSuccessful = true;
+//		}
+//		return isSuccessful;
+//	}
 	
 	public boolean deletePersonById(long id) {
 		return jdbcTemplate.update(SQL_DELETE_PERSON,id)>0;

@@ -17,4 +17,5 @@ public interface CarDao {
 	
 	List<Car> getCarsByOwner(long owner);
 	
+	boolean deleteCarByOwner(long owner);
 }

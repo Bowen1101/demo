@@ -28,7 +28,7 @@ public class CarController {
 		return "addcar";
 	}
 	
-	@PostMapping("/addCar")
+	@PostMapping("/addcar")
 	public String showAddCarResult(Model model,@ModelAttribute("car") Car car) {
 		carService.createCar(car);
 		return "addcarresult";

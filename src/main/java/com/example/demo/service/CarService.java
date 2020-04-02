@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.CarDao;
+import com.example.demo.dao.PersonDao;
 import com.example.demo.model.Car;
+import com.example.demo.model.Person;
 
 @Service
 public class CarService {
 	
 	@Autowired
 	private CarDao carDao;
+	@Autowired
+	private PersonDao personDao;
 	
 	public Car getCarById(long id) {
 		return carDao.getCarById(id);
@@ -23,7 +27,11 @@ public class CarService {
 	}
 	
 	public boolean createCar(Car car) {
-		return carDao.createCar(car);
+		boolean isSuccessful = carDao.createCar(car);
+		List<Car> cars = carDao.getCarsByOwner(car.getOwner());
+		Person person = personDao.getPersonById(car.getOwner());
+		person.setCars(cars);
+		return isSuccessful;
 	}
 	
 	public boolean deleteCar(Car car) {

@@ -22,6 +22,7 @@ public class CarDaoImpl implements CarDao {
 	private final String SQL_GET_ALL = "select * from cars";
 	private final String SQL_INSERT_CAR = "insert into cars(vin_number, make, model, color, owner) values(?,?,?,?,?)";
 	private final String SQL_FIND_CARS_BY_OWNER = "select * from cars where owner = ?";
+	private final String SQL_DELETE_CAR_BY_OWNER = "delete from cars where owner = ?";
 
 	@Autowired
 	public CarDaoImpl(DataSource dataSource) {
@@ -44,12 +45,16 @@ public class CarDaoImpl implements CarDao {
 		return jdbcTemplate.update(SQL_DELETE_CAR, car.getId()) > 0;
 	}
 	
+	public boolean deleteCarByOwner(long owner) {
+		return jdbcTemplate.update(SQL_DELETE_CAR_BY_OWNER, owner)>0;
+	}
+	
 	public boolean updateCar(Car car) {
 		return jdbcTemplate.update(SQL_UPDATE_CAR, car.getVinNumber(), car.getMake(), car.getModel(), car.getColor(), car.getOwner(), car.getId()) > 0;
 	}
 	
 	public List<Car> getCarsByOwner(long owner){
-		return jdbcTemplate.query(SQL_FIND_CARS_BY_OWNER, new Object[] {owner},new CarMapper());
+		return jdbcTemplate.query(SQL_FIND_CARS_BY_OWNER, new Object[] {owner}, new CarMapper());
 	}
 	
 }
