@@ -37,6 +37,9 @@ public class PersonService {
 //	}
 	
 	public boolean deletePersonAndCarsById(long id) {
+//		when I create a car and set into person.cars, then call person.cars it's null 
+//		Person person = personDao.getPersonById(id);
+//		List<Car> cars1 = person.getCars();
 		List<Car> cars = carDao.getCarsByOwner(id);
 		if(cars != null) {
 			carDao.deleteCarByOwner(id);
