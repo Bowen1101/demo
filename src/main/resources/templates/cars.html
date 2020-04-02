@@ -15,7 +15,12 @@
 <div>
 	<div th:if="${not #lists.isEmpty(cars)}">
 		<h2>Cars List</h2>
-		<a href="/addcar">Add a Car</a>
+		<h3>
+			<a href="/addcar">Add a Car</a>
+		</h3>
+		<h3>
+			<a href="/people">Go to People List</a>
+		</h3>
 		<table id="cars" class="display" cellspacing="0" width="80%">
 		<thead>
 			<tr>
