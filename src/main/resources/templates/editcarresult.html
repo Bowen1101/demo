@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show message</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Result</h1>
+	
+	<div>
+		<h2>Car Information: </h2>
+		<p th:utext=" '<b>'+'Vin Number: '+'</b>' + ${car.vinNumber} + '<br/>'+
+					  '<b>'+'Make: '+'</b>' + ${car.make} + '</br>'+
+					  '<b>'+'Model: '+'</b>' + ${car.model} + '</br>'+ 	
+					  '<b>'+'Color: '+'</b>' + ${car.color} + '<br/>' +
+					  '<b>'+'Owner: '+'</b>' + ${car.owner} + '<br/>' "
+		</p>
+	</div>
+
+
+<a href="/cars">Return To Car List</a>
+
+</body>
+</html>

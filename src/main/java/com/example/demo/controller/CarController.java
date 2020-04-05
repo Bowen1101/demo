@@ -41,5 +41,16 @@ public class CarController {
 		return "redirect:/cars";
 	}
 	
+	@RequestMapping("/editcar")
+	public String updateCar(Model model, @RequestParam(value="id", required=true) long id) {
+		Car car = carService.getCarById(id);
+		model.addAttribute("car", car );
+		return"editcar";
+	}
 	
+	@PostMapping("/editcar")
+	public String showEditCarResult(Model model, @ModelAttribute("car") Car car) {
+		carService.updateCar(car);
+		return "editcarresult";
+	}
 }
