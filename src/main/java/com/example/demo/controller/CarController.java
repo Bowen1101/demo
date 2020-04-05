@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Car;
 import com.example.demo.service.CarService;
@@ -32,6 +33,12 @@ public class CarController {
 	public String showAddCarResult(Model model,@ModelAttribute("car") Car car) {
 		carService.createCar(car);
 		return "addcarresult";
+	}
+	
+	@RequestMapping("/deletecar")
+	public String deleteCarById(Model model, @RequestParam(value="id", required=true) long id) {
+		carService.deleteCarsById(id);
+		return "redirect:/cars";
 	}
 	
 	

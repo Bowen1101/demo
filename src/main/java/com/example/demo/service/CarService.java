@@ -37,7 +37,12 @@ public class CarService {
 	public boolean deleteCar(Car car) {
 		return carDao.deleteCar(car);
 	}
-
+	
+	public boolean deleteCarsById(long id) {
+		return carDao.deleteCarsById(id);
+	}
+	
+	
 	public boolean updateCar(Car car) {
 		return carDao.updateCar(car);
 	}

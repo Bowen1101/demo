@@ -30,6 +30,8 @@
 				<th>Model</th>
 				<th>Color</th>
 				<th>Owner Id</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>	
@@ -40,6 +42,12 @@
 				<td th:text="${car.model}"></td>
 				<td th:text="${car.color}"></td>
 				<td th:text="${car.owner}"></td>
+				<td>
+					<a th:href="@{/editcar(id=${car.id})}">Edit</a>
+				</td>
+				<td>
+					<a th:href="@{/deletecar(id=${car.id})}">Delete</a>
+				</td>
 			</tr>
 		</tbody>
 		</table>

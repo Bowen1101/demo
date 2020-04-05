@@ -45,6 +45,10 @@ public class CarDaoImpl implements CarDao {
 		return jdbcTemplate.update(SQL_DELETE_CAR, car.getId()) > 0;
 	}
 	
+	public boolean deleteCarsById(long id) {
+		return jdbcTemplate.update(SQL_DELETE_CAR, id) > 0;
+	}
+	
 	public boolean deleteCarByOwner(long owner) {
 		return jdbcTemplate.update(SQL_DELETE_CAR_BY_OWNER, owner)>0;
 	}
